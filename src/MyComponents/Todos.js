@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Todos = () => {
+export const Todos = (props) => {
     return (
-        <div>Todos Works</div>
+        <div className='container'>
+            <h3>Todos Works</h3>
+        </div>
     )
 }
