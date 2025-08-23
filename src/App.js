@@ -11,15 +11,15 @@ function App() {
       return e !== todo;
     }))
   }
-  const addTodo = (title,desc)=>{
-    console.log("I am adding this todo",title,desc);
-    let sno=todos[todos.length-1].sno+1;
-    const myTodo={
-      sno:sno,
-      title:title,
-      desc:desc,
+  const addTodo = (title, desc) => {
+    console.log("I am adding this todo", title, desc);
+    let sno = todos[todos.length - 1].sno + 1;
+    const myTodo = {
+      sno: sno,
+      title: title,
+      desc: desc,
     }
-    setTodos([...todos,myTodo]);
+    setTodos([...todos, myTodo]);
     console.log(myTodo);
   }
   const [todos, setTodos] = useState([
