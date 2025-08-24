@@ -4,6 +4,7 @@ import { Addtodo } from './MyComponents/Addtodo';
 import { Footer } from './MyComponents/Footer';
 import Header from './MyComponents/Header';
 import { Todos } from './MyComponents/Todos';
+import { About } from './MyComponents/About';
 import {
   browserRouter as Router,
   Switch,
@@ -55,8 +56,26 @@ function App() {
     <>
       <router>
         <Header title="My Todos List" searchBar={true} />
-        <Addtodo addTodo={addTodo} />
-        <Todos todos={todos} onDelete={onDelete} />
+
+        <Switch>
+
+          <Route path="/" render={() => {
+            return(
+            <>
+              <Addtodo addTodo={addTodo} />
+              <Todos todos={todos} onDelete={onDelete} />
+            </>
+            )
+
+          }}>
+          </Route>
+
+          <Route path="/about">
+            <About />
+          </Route>
+
+        </Switch>
+
         <Footer />
       </router>
     </>
