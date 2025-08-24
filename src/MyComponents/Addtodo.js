@@ -11,8 +11,8 @@ export const Addtodo = (props) => {
             return; // ⬅️ stop execution here
         }
         props.addTodo(title, desc);
-        setTitle(""); // clear input after submit
-        setDesc("");  // clear input after submit
+        setTitle("");
+        setDesc("");
     }
 
     return (
