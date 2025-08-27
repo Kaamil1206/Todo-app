@@ -53,22 +53,30 @@ function App() {
 
   return (
     <Router>
-      <Header title="My Todos List" searchBar={true} />
+      {/* Full height container */}
+      <div className="d-flex flex-column min-vh-100">
 
-      <Switch>
-        <Route exact path="/">
-          <>
-            <Addtodo addTodo={addTodo} />
-            <Todos todos={todos} onDelete={onDelete} />
-          </>
-        </Route>
+        {/* Main content */}
+        <div className="flex-grow-1">
+          <Header title="My Todos List" searchBar={true} />
 
-        <Route exact path="/about">
-          <About />
-        </Route>
-      </Switch>
+          <Switch>
+            <Route exact path="/">
+              <>
+                <Addtodo addTodo={addTodo} />
+                <Todos todos={todos} onDelete={onDelete} />
+              </>
+            </Route>
 
-      <Footer />
+            <Route exact path="/about">
+              <About />
+            </Route>
+          </Switch>
+        </div>
+
+        {/* Footer stays at bottom */}
+        <Footer />
+      </div>
     </Router>
   );
 }
