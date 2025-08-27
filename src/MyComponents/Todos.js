@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Todoitem } from './Todoitem';
 
 export const Todos = (props) => {
