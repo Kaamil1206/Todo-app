@@ -1,10 +1,61 @@
-import React from 'react'
+import React from 'react';
 
 export const About = () => {
     return (
-        <div className='container'>
-            This is About page
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis maiores deleniti quas repudiandae. Velit corrupti aut laudantium maiores distinctio doloremque blanditiis repellat cum eligendi dignissimos! Est expedita vel voluptatem accusantium cupiditate aut in debitis, enim iste ex voluptas voluptates quam eos vitae. Ut voluptates, doloremque omnis unde alias ad assumenda, atque impedit veniam tempora molestias, asperiores cupiditate nam nostrum eius beatae a! Praesentium veniam rerum molestiae debitis porro iusto assumenda dolor quaerat quibusdam tenetur? Asperiores necessitatibus quas quos repudiandae odit eligendi recusandae placeat, itaque ipsam commodi alias earum numquam aspernatur nobis totam. Suscipit asperiores tempora repudiandae fuga molestiae delectus id repellendus praesentium, ad ducimus quas reiciendis in ipsa error. Sapiente explicabo ipsam nam, reiciendis deleniti velit culpa eligendi eveniet nobis, accusamus nisi temporibus fugit. Eligendi, dignissimos impedit asperiores provident eos molestiae obcaecati debitis in quaerat quam maxime omnis! Aut, tempora error amet quia, accusantium cupiditate expedita quas ad at, impedit dolore aliquam necessitatibus neque! Dolorum ut quia voluptatem mollitia atque ab adipisci, maiores, fugit voluptas iusto labore exercitationem expedita tenetur ex iste autem. Alias, ea consequatur officia laborum aperiam necessitatibus quas officiis esse, natus totam aspernatur modi provident nihil! Asperiores reiciendis quod amet? Expedita, laudantium blanditiis necessitatibus ullam libero veritatis aliquid, nihil reprehenderit ea harum consequuntur natus magni. Aspernatur, iure enim. Exercitationem possimus maxime vero quam nostrum a praesentium et iusto excepturi iure aspernatur voluptatibus esse voluptatem, dolorum voluptate beatae nobis? Deleniti aperiam, dicta minus repellendus vitae non eligendi quisquam temporibus explicabo ab amet a? Nulla quisquam vel architecto est voluptate minus illo esse, et sunt veniam eaque, temporibus quasi repellendus eligendi magnam repellat quo! Velit, repudiandae veritatis? Unde, labore repudiandae placeat blanditiis vero maxime. Cumque nemo numquam inventore? Inventore incidunt ad, itaque, saepe tempore neque ipsum consequatur officiis a, libero corporis aut totam perferendis tenetur praesentium? Provident omnis ratione tempora totam labore asperiores voluptatum reprehenderit molestias dolore maiores velit sed consectetur, dolorem, facilis aliquid optio dolores vel nemo, fugit vero magni ut inventore. Magni atque id assumenda amet? Sed est necessitatibus possimus nobis. Nostrum molestias natus facere consequatur consequuntur quod hic sapiente maiores ab, necessitatibus ipsa odio maxime unde voluptates rem minima libero nam molestiae sunt? Unde nesciunt ratione amet sed est nemo eius dolor eaque voluptatum. Eum, commodi incidunt. Quo molestiae obcaecati hic debitis explicabo iure dolores consectetur iste suscipit, nisi pariatur cum, perferendis voluptatibus eum. Dignissimos optio debitis nesciunt aliquid omnis voluptatibus nam eveniet vero, praesentium labore unde possimus, suscipit ex rerum! Autem ullam officiis voluptas nisi cum vitae repudiandae placeat explicabo! Qui magnam eos ullam. Facere laborum excepturi ut temporibus at nam eos obcaecati, iste dolore dignissimos doloribus? Consequatur porro natus nostrum. Consequatur, corporis alias excepturi a omnis dolor inventore! Animi necessitatibus facilis minus sint totam qui eaque obcaecati perferendis ipsum, et officia saepe! Deserunt magni molestiae nulla laboriosam accusamus eligendi et iure blanditiis. Quisquam animi incidunt perferendis quo, natus porro dolore illum. Minima libero dicta perferendis repudiandae consectetur, totam beatae tempore assumenda fugiat quisquam quam labore, eveniet quas magni et sapiente aspernatur cupiditate est sunt.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, voluptates error, quod quisquam possimus omnis hic dolores iusto et quos at animi aliquam harum perferendis labore distinctio quaerat vitae est, nihil deleniti eos dolore consequuntur temporibus. Expedita similique odit tempora! Nemo quaerat aspernatur dicta maiores impedit laboriosam necessitatibus perferendis accusamus possimus itaque, nam, ex similique, quia soluta! Tempore iusto magnam harum adipisci nisi incidunt molestiae, voluptatibus, perspiciatis inventore soluta veritatis, voluptate excepturi quaerat illum quo quae recusandae molestias ipsam in sunt velit repellendus laudantium doloribus. Aut eos quisquam fugiat, delectus temporibus, consequuntur, facilis illum recusandae voluptatibus tenetur ducimus adipisci voluptate.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est nihil cupiditate cum adipisci vitae similique accusamus animi vel voluptatum rerum? Eos deleniti iure amet commodi consectetur, cupiditate laudantium dolorem accusamus.</p>
+        <div className="container my-4">
+            <h2 className="text-center mb-4">About This App</h2>
+
+            {/* Card Section */}
+            <div className="card shadow-sm mb-4">
+                <div className="card-body">
+                    <h5 className="card-title">What is MyTodosList?</h5>
+                    <p className="card-text">
+                        MyTodosList is a simple React app that helps you manage your daily tasks. 
+                        You can add, delete, and keep track of your todos. The app uses <strong>local storage</strong> 
+                        so your todos are saved even after you refresh the page.
+                    </p>
+                </div>
+            </div>
+
+            {/* Features Section */}
+            <div className="row text-center mb-4">
+                <div className="col-md-4 mb-3">
+                    <div className="card h-100 shadow-sm">
+                        <div className="card-body">
+                            <h5 className="card-title">📝 Easy to Use</h5>
+                            <p className="card-text">Quickly add and delete todos with a clean interface.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4 mb-3">
+                    <div className="card h-100 shadow-sm">
+                        <div className="card-body">
+                            <h5 className="card-title">💾 Auto Save</h5>
+                            <p className="card-text">Todos are stored in your browser's local storage automatically.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4 mb-3">
+                    <div className="card h-100 shadow-sm">
+                        <div className="card-body">
+                            <h5 className="card-title">🚀 Built with React</h5>
+                            <p className="card-text">This app is made using modern React with functional components.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Motivation / Fun Section */}
+            <div className="card shadow-sm">
+                <div className="card-body text-center">
+                    <h5 className="card-title">Why Use It?</h5>
+                    <p className="card-text">
+                        Life gets busy – and remembering everything isn’t easy.  
+                        With MyTodosList, you can stay <strong>organized, productive, and stress-free!</strong> ✨
+                    </p>
+                    <p className="text-muted fst-italic">"Productivity is never an accident. It is always the result of a commitment to excellence."</p>
+                </div>
+            </div>
         </div>
-    )
-}
+    );
+};
