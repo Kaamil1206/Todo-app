@@ -14,11 +14,14 @@ export const Todos = (props) => {
                 ? <p className="text-center text-muted">No Todos to display</p>
                 : props.todos.map((todo) => {
                     return (
-                        <Todoitem
-                            todo={todo}
-                            key={todo.sno}
-                            onDelete={props.onDelete}
-                        />
+                        <div className="card glass-card shadow-sm mb-3" key={todo.sno}>
+                            <div className="card-body">
+                                <Todoitem
+                                    todo={todo}
+                                    onDelete={props.onDelete}
+                                />
+                            </div>
+                        </div>
                     );
                 })
             }
