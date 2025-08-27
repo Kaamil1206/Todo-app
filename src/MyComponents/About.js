@@ -5,7 +5,6 @@ export const About = () => {
         <div className="container my-4">
             <h2 className="text-center mb-4">About This App</h2>
 
-            {/* Card Section */}
             <div className="card shadow-sm mb-4">
                 <div className="card-body">
                     <h5 className="card-title">What is MyTodosList?</h5>
@@ -17,7 +16,6 @@ export const About = () => {
                 </div>
             </div>
 
-            {/* Features Section */}
             <div className="row text-center mb-4">
                 <div className="col-md-4 mb-3">
                     <div className="card h-100 shadow-sm">
@@ -45,7 +43,6 @@ export const About = () => {
                 </div>
             </div>
 
-            {/* Motivation / Fun Section */}
             <div className="card shadow-sm">
                 <div className="card-body text-center">
                     <h5 className="card-title">Why Use It?</h5>
