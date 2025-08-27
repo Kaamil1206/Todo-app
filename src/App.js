@@ -23,13 +23,11 @@ function App() {
   const [todos, setTodos] = useState(initTodo);
 
   const onDelete = (todo) => {
-    console.log("I am onDelete function of todo", todo);
     const newTodos = todos.filter((e) => e !== todo);
     setTodos(newTodos);
   };
 
   const addTodo = (title, desc) => {
-    console.log("I am adding this todo", title, desc);
     let sno;
     if (todos.length === 0) {
       sno = 0;
@@ -37,14 +35,8 @@ function App() {
       sno = todos[todos.length - 1].sno + 1;
     }
 
-    const myTodo = {
-      sno: sno,
-      title: title,
-      desc: desc,
-    };
-
+    const myTodo = { sno, title, desc };
     setTodos([...todos, myTodo]);
-    console.log(myTodo);
   };
 
   useEffect(() => {
@@ -53,19 +45,16 @@ function App() {
 
   return (
     <Router>
-      {}
       <div className="d-flex flex-column min-vh-100">
-
-        {/* Main content */}
         <div className="flex-grow-1">
           <Header title="My Todos List" searchBar={true} />
 
           <Switch>
             <Route exact path="/">
-              <>
+              <div className="container my-3">
                 <Addtodo addTodo={addTodo} />
                 <Todos todos={todos} onDelete={onDelete} />
-              </>
+              </div>
             </Route>
 
             <Route exact path="/about">
@@ -73,8 +62,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-
-        {}
         <Footer />
       </div>
     </Router>
