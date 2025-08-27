@@ -5,6 +5,7 @@ import { Footer } from './MyComponents/Footer';
 import Header from './MyComponents/Header';
 import { Todos } from './MyComponents/Todos';
 import { About } from './MyComponents/About';
+import ParticlesBackground from './MyComponents/ParticlesBackground';
 import {
   BrowserRouter as Router,
   Switch,
@@ -45,10 +46,10 @@ function App() {
 
   return (
     <Router>
-      <div className="d-flex flex-column min-vh-100">
-        <div className="flex-grow-1">
+      <div className="d-flex flex-column min-vh-100" style={{ position: "relative" }}>
+        <ParticlesBackground />
+        <div className="flex-grow-1" style={{ position: "relative", zIndex: 1 }}>
           <Header title="My Todos List" searchBar={true} />
-
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
@@ -56,7 +57,6 @@ function App() {
                 <Todos todos={todos} onDelete={onDelete} />
               </div>
             </Route>
-
             <Route exact path="/about">
               <About />
             </Route>
