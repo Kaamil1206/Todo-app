@@ -53,7 +53,7 @@ function App() {
 
   return (
     <Router>
-      {/* Full height container */}
+      {}
       <div className="d-flex flex-column min-vh-100">
 
         {/* Main content */}
@@ -74,7 +74,7 @@ function App() {
           </Switch>
         </div>
 
-        {/* Footer stays at bottom */}
+        {}
         <Footer />
       </div>
     </Router>
