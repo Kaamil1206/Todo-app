@@ -23,7 +23,7 @@ export const Addtodo = (props) => {
     return (
         <div className="card shadow-sm mb-4">
             <div className="card-body">
-                <h4 className="card-title text-center mb-3">Add Todo</h4>
+                
                 <form onSubmit={submit}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Todo Title</label>
