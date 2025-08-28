@@ -7,11 +7,11 @@ export const Todos = ({ todos, onDelete }) => {
     const nodeRefs = useRef({});
 
     const handleDelete = (todo) => {
-        const scrollTop = containerRef.current?.scrollTop; // save scroll
+        const scrollTop = containerRef.current?.scrollTop;
         onDelete(todo);
         setTimeout(() => {
             if (containerRef.current) {
-                containerRef.current.scrollTop = scrollTop; // restore scroll
+                containerRef.current.scrollTop = scrollTop;
             }
         }, 0);
     };
@@ -23,8 +23,8 @@ export const Todos = ({ todos, onDelete }) => {
             style={{
                 minHeight: "70vh",
                 margin: "40px auto",
-                maxHeight: "65vh", // ✅ keeps list contained
-                overflowY: "auto", // ✅ scrolls inside container only
+                maxHeight: "65vh",
+                overflowY: "auto",
             }}
         >
             {todos.length === 0 ? (
@@ -40,9 +40,9 @@ export const Todos = ({ todos, onDelete }) => {
                         return (
                             <CSSTransition
                                 key={todo.sno}
-                                timeout={300}
+                                timeout={400}
                                 classNames="todo"
-                                nodeRef={nodeRefs.current[todo.sno]} // ✅ avoids findDOMNode error
+                                nodeRef={nodeRefs.current[todo.sno]}
                             >
                                 <div
                                     ref={nodeRefs.current[todo.sno]}
