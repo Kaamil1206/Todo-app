@@ -1,53 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 
-export const Addtodo = (props) => {
+export const Addtodo = ({ addTodo }) => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+    const [show, setShow] = useState(true);
+    const nodeRef = useRef(null);
 
     const submit = (e) => {
         e.preventDefault();
-        if (!title || !desc) {
-            if(!title){
-                alert("Title cannot be blank");
-            }
-            if(!desc){
-                alert("Description cannot be blank");
-            }
-        } else {
-            props.addTodo(title, desc);
-            setTitle("");
-            setDesc("");
+
+        if (title.trim() === "" || desc.trim() === "") {
+            alert("Please fill in both Title and Description before adding 🚨");
+            return;
         }
+
+        addTodo(title.trim(), desc.trim());
+        setTitle("");
+        setDesc("");
     };
 
     return (
-        <div className="card shadow-sm mb-4">
-            <div className="card-body">
-                
+        <CSSTransition
+            in={show}
+            timeout={300}
+            classNames="fade"
+            unmountOnExit
+            nodeRef={nodeRef}
+        >
+            <div
+                ref={nodeRef}
+                className="glass-card p-4 shadow-sm mb-4 rounded-3"
+            >
+                <h5 className="text-center mb-3 fw-bold text-primary">➕ Add a New Todo</h5>
                 <form onSubmit={submit}>
                     <div className="mb-3">
-                        <label htmlFor="title" className="form-label">Todo Title</label>
+                        <label htmlFor="title" className="form-label fw-semibold">
+                            Todo Title
+                        </label>
                         <input
                             type="text"
+                            id="title"
+                            className="form-control shadow-sm"
+                            placeholder="Enter todo title..."
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="form-control"
-                            id="title"
                         />
                     </div>
+
                     <div className="mb-3">
-                        <label htmlFor="desc" className="form-label">Description</label>
+                        <label htmlFor="desc" className="form-label fw-semibold">
+                            Description
+                        </label>
                         <textarea
+                            id="desc"
+                            className="form-control shadow-sm"
+                            rows="3"
+                            placeholder="Enter todo details..."
                             value={desc}
                             onChange={(e) => setDesc(e.target.value)}
-                            className="form-control"
-                            id="desc"
-                            rows="3"
                         ></textarea>
                     </div>
-                    <button type="submit" className="btn btn-success w-100">Add Todo</button>
+
+                    <button
+                        type="submit"
+                        className="btn btn-success w-100 fw-bold shadow"
+                    >
+                        Add Todo 🚀
+                    </button>
                 </form>
             </div>
-        </div>
+        </CSSTransition>
     );
 };
