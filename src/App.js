@@ -5,6 +5,7 @@ import { Footer } from './MyComponents/Footer';
 import Header from './MyComponents/Header';
 import { Todos } from './MyComponents/Todos';
 import { About } from './MyComponents/About';
+import { motion } from "framer-motion";
 import ParticlesBackground from './MyComponents/ParticlesBackground';
 import {
   BrowserRouter as Router,
@@ -53,16 +54,20 @@ function App() {
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
-                {/* Glassmorphism card */}
-                <div className="glass-card p-4 shadow-lg">
-                  {/* Only components (no duplicate titles) */}
-                  <h4 className="card-title text-center mb-3">Add Todo</h4>
+                {/* AddTodo card */}
+                <div className="glass-card p-4 shadow-lg mb-4">
+                  <h4 className="text-center mb-3">Add Todo</h4>
                   <Addtodo addTodo={addTodo} />
-                  <hr />
+                </div>
+
+                {/* Todos card */}
+                <div className="glass-card p-4 shadow-lg">
+                  <h4 className="text-center mb-3">My Todos</h4>
                   <Todos todos={todos} onDelete={onDelete} />
                 </div>
               </div>
             </Route>
+
             <Route exact path="/about">
               <About />
             </Route>
