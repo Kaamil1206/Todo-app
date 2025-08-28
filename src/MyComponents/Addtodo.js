@@ -32,7 +32,7 @@ export const Addtodo = ({ addTodo }) => {
                 ref={nodeRef}
                 className="glass-card p-4 shadow-sm mb-4 rounded-3"
             >
-                <h5 className="text-center mb-3 fw-bold text-primary">➕ Add a New Todo</h5>
+                <h5 className="text-center mb-3 fw-bold "> Add a New Todo</h5>
                 <form onSubmit={submit}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label fw-semibold">
