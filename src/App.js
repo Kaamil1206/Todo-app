@@ -62,7 +62,6 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <h4 className="text-center mb-3">Add Todo</h4>
                   <Addtodo addTodo={addTodo} />
                 </motion.div>
 
