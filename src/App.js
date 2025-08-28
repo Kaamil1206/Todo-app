@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import './App.css';
 import { Addtodo } from './MyComponents/Addtodo';
 import { Footer } from './MyComponents/Footer';
@@ -12,6 +12,9 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+
+// Wrap ParticlesBackground in memo to prevent re-render
+const MemoizedParticles = memo(ParticlesBackground);
 
 function App() {
   let initTodo;
@@ -48,14 +51,16 @@ function App() {
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100 animated-bg" style={{ position: "relative" }}>
-        <ParticlesBackground />
+        {/* Particles fixed in background, won't re-render */}
+        <MemoizedParticles />
+
         <div className="flex-grow-1" style={{ position: "relative", zIndex: 1 }}>
           <Header title="My Todos List" searchBar={true} />
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
 
-                {/* AddTodo card with animation */}
+                {/* AddTodo card with motion animation */}
                 <motion.div
                   className="glass-card p-4 shadow-lg mb-4"
                   initial={{ opacity: 0, y: -50 }}
@@ -65,7 +70,7 @@ function App() {
                   <Addtodo addTodo={addTodo} />
                 </motion.div>
 
-                {/* Todos card with animation */}
+                {/* Todos list card with motion animation */}
                 <motion.div
                   className="glass-card p-4 shadow-lg"
                   initial={{ opacity: 0, y: 50 }}
