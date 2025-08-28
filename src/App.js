@@ -46,15 +46,20 @@ function App() {
 
   return (
     <Router>
-      <div className="d-flex flex-column min-vh-100" style={{ position: "relative" }}>
+      <div className="d-flex flex-column min-vh-100 animated-bg" style={{ position: "relative" }}>
         <ParticlesBackground />
         <div className="flex-grow-1" style={{ position: "relative", zIndex: 1 }}>
           <Header title="My Todos List" searchBar={true} />
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
-                <Addtodo addTodo={addTodo} />
-                <Todos todos={todos} onDelete={onDelete} />
+                {/* Glassmorphism card */}
+                <div className="glass-card p-4 shadow-lg">
+                  {/* Only components (no duplicate titles) */}
+                  <Addtodo addTodo={addTodo} />
+                  <hr />
+                  <Todos todos={todos} onDelete={onDelete} />
+                </div>
               </div>
             </Route>
             <Route exact path="/about">
