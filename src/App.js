@@ -54,17 +54,28 @@ function App() {
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
-                {/* AddTodo card */}
-                <div className="glass-card p-4 shadow-lg mb-4">
+                
+                {/* AddTodo card with animation */}
+                <motion.div
+                  className="glass-card p-4 shadow-lg mb-4"
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                   <h4 className="text-center mb-3">Add Todo</h4>
                   <Addtodo addTodo={addTodo} />
-                </div>
+                </motion.div>
 
-                {/* Todos card */}
-                <div className="glass-card p-4 shadow-lg">
+                {/* Todos card with animation */}
+                <motion.div
+                  className="glass-card p-4 shadow-lg"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                >
                   <h4 className="text-center mb-3">My Todos</h4>
                   <Todos todos={todos} onDelete={onDelete} />
-                </div>
+                </motion.div>
               </div>
             </Route>
 
