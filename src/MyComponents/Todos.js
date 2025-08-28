@@ -1,5 +1,6 @@
 import React from 'react';
 import { Todoitem } from './Todoitem';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 export const Todos = (props) => {
     let myStyle = {
@@ -8,23 +9,26 @@ export const Todos = (props) => {
     };
 
     return (
-        <div className='container' style={myStyle}>
-            <h3 className='my-3 text-center'>My Todos</h3>
-            {props.todos.length === 0
-                ? <p className="text-center text-muted">No Todos to display</p>
-                : props.todos.map((todo) => {
-                    return (
-                        <div className="card glass-card shadow-sm mb-3" key={todo.sno}>
-                            <div className="card-body">
-                                <Todoitem
-                                    todo={todo}
-                                    onDelete={props.onDelete}
-                                />
+        <div className='container fade-in' style={myStyle}>
+            {props.todos.length === 0 ? (
+                <div className="glass-card p-4 text-center text-muted">
+                    <p>No Todos to display</p>
+                </div>
+            ) : (
+                <TransitionGroup>
+                    {props.todos.map((todo) => (
+                        <CSSTransition
+                            key={todo.sno}
+                            timeout={300}
+                            classNames="todo"
+                        >
+                            <div className="todo-item">
+                                <Todoitem todo={todo} onDelete={props.onDelete} />
                             </div>
-                        </div>
-                    );
-                })
-            }
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
+            )}
         </div>
-    )
-}
+    );
+};
