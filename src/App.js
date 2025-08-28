@@ -56,6 +56,7 @@ function App() {
                 {/* Glassmorphism card */}
                 <div className="glass-card p-4 shadow-lg">
                   {/* Only components (no duplicate titles) */}
+                  <h4 className="card-title text-center mb-3">Add Todo</h4>
                   <Addtodo addTodo={addTodo} />
                   <hr />
                   <Todos todos={todos} onDelete={onDelete} />
