@@ -54,7 +54,7 @@ function App() {
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
-                
+
                 {/* AddTodo card with animation */}
                 <motion.div
                   className="glass-card p-4 shadow-lg mb-4"
