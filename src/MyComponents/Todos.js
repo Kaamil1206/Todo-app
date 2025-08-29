@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Todoitem } from "./Todoitem";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-export const Todos = ({ todos, onDelete }) => {
+export const Todos = ({ todos, onDelete, onEdit }) => {
     const containerRef = useRef(null);
     const nodeRefs = useRef({});
 
@@ -20,12 +20,7 @@ export const Todos = ({ todos, onDelete }) => {
         <div
             ref={containerRef}
             className="container fade-in todos-container"
-            style={{
-                minHeight: "70vh",
-                margin: "40px auto",
-                maxHeight: "65vh",
-                overflowY: "auto",
-            }}
+            style={{ minHeight: "70vh", margin: "40px auto", maxHeight: "65vh", overflowY: "auto" }}
         >
             {todos.length === 0 ? (
                 <div className="glass-card p-4 text-center text-muted shadow-sm rounded-3">
@@ -48,7 +43,12 @@ export const Todos = ({ todos, onDelete }) => {
                                     ref={nodeRefs.current[todo.sno]}
                                     className="todo-item glass-card p-3 mb-3 shadow-sm rounded-3"
                                 >
-                                    <Todoitem todo={todo} onDelete={() => handleDelete(todo)} />
+                                    <Todoitem
+                                        todo={todo}
+                                        onDelete={() => handleDelete(todo)}
+                                        onEdit={onEdit}
+                                        theme="light"
+                                    />
                                 </div>
                             </CSSTransition>
                         );
