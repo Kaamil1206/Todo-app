@@ -1,0 +1,63 @@
+/* 🌟 Glassmorphic Navbar Styles */
+.glass-navbar {
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    background-color: rgba(255, 255, 255, 0.22);
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin: 10px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.glass-navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+.glass-navbar .navbar-brand:hover {
+    color: #007bff;
+}
+
+.glass-navbar .nav-link {
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.glass-navbar .nav-link:hover {
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+.glass-navbar .form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #000;
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.glass-navbar .form-control:focus {
+    background: rgba(255, 255, 255, 0.35);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.glass-navbar .btn-outline-success {
+    border-radius: 8px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: rgba(0, 123, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.glass-navbar .btn-outline-success:hover {
+    background-color: rgba(0, 123, 255, 1);
+    color: #fff;
+    transform: scale(1.05);
+}
