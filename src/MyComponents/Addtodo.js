@@ -1,21 +1,36 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
-export const Addtodo = ({ addTodo }) => {
+export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [show, setShow] = useState(true);
     const nodeRef = useRef(null);
 
+    useEffect(() => {
+        if (editTodo) {
+            setTitle(editTodo.title);
+            setDesc(editTodo.desc);
+        }
+    }, [editTodo]);
+
     const submit = (e) => {
         e.preventDefault();
-
         if (title.trim() === "" || desc.trim() === "") {
             alert("Please fill in both Title and Description before adding 🚨");
             return;
         }
 
-        addTodo(title.trim(), desc.trim());
+        if (editTodo) {
+            const updatedTodos = todos.map((t) =>
+                t.sno === editTodo.sno ? { ...t, title, desc } : t
+            );
+            setTodos(updatedTodos);
+            setEditTodo(null);
+        } else {
+            addTodo(title.trim(), desc.trim());
+        }
+
         setTitle("");
         setDesc("");
     };
@@ -32,7 +47,9 @@ export const Addtodo = ({ addTodo }) => {
                 ref={nodeRef}
                 className="glass-card p-4 shadow-sm mb-4 rounded-3"
             >
-                <h5 className="text-center mb-3 fw-bold "> Add a New Todo</h5>
+                <h5 className="text-center mb-3 fw-bold ">
+                    {editTodo ? "Edit Todo" : "Add a New Todo"}
+                </h5>
                 <form onSubmit={submit}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label fw-semibold">
@@ -66,7 +83,7 @@ export const Addtodo = ({ addTodo }) => {
                         type="submit"
                         className="btn btn-success w-100 fw-bold shadow"
                     >
-                        Add Todo 🚀
+                        {editTodo ? "Save Changes" : "Add Todo"} 🚀
                     </button>
                 </form>
             </div>
