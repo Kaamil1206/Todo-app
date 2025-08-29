@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useEffect, useState } from "react";
-import { loadSlim } from "@tsparticles/slim"; // lightweight version
+import { loadSlim } from "@tsparticles/slim"; // Lightweight version of tsparticles
 
+/**
+ * ParticlesBackground Component
+ * Displays a dynamic particles background using tsparticles library.
+ */
 const ParticlesBackground = () => {
-    const [init, setInit] = useState(false);
+    const [initialized, setInitialized] = useState(false);
 
+    // Initialize particles engine on component mount
     useEffect(() => {
         initParticlesEngine(async (engine) => {
-            await loadSlim(engine);
+            await loadSlim(engine); // Load lightweight particles engine
         }).then(() => {
-            setInit(true);
+            setInitialized(true); // Set flag once initialized
         });
     }, []);
 
-    if (!init) {
-        return null; // wait until initialized
-    }
+    // Wait until particles engine is initialized
+    if (!initialized) return null;
 
     return (
         <Particles
             id="tsparticles"
             options={{
                 background: {
-                    color: "#ffffff", // white background
+                    color: "#ffffff", // Background color
                 },
                 fpsLimit: 60,
                 particles: {
@@ -31,7 +34,7 @@ const ParticlesBackground = () => {
                         value: 80,
                         density: { enable: true, area: 800 },
                     },
-                    color: { value: "#000000" }, // black atoms
+                    color: { value: "#000000" }, // Particle color
                     links: {
                         enable: true,
                         distance: 150,
@@ -50,8 +53,8 @@ const ParticlesBackground = () => {
                 },
                 interactivity: {
                     events: {
-                        onHover: { enable: true, mode: "repulse" },
-                        onClick: { enable: true, mode: "push" },
+                        onHover: { enable: true, mode: "repulse" }, // Repulse on hover
+                        onClick: { enable: true, mode: "push" },    // Add particles on click
                     },
                     modes: {
                         repulse: { distance: 100 },
