@@ -13,7 +13,6 @@ import {
   Route
 } from "react-router-dom";
 
-// Wrap ParticlesBackground in memo to prevent re-render
 const MemoizedParticles = memo(ParticlesBackground);
 
 function App() {
