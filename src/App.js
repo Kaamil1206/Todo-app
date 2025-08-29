@@ -7,7 +7,12 @@ import { Todos } from './MyComponents/Todos';
 import { About } from './MyComponents/About';
 import { motion } from "framer-motion";
 import ParticlesBackground from './MyComponents/ParticlesBackground';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 
 const MemoizedParticles = memo(ParticlesBackground);
 
@@ -21,7 +26,6 @@ function App() {
   }
 
   const [todos, setTodos] = useState(initTodo);
-  const [editTodo, setEditTodo] = useState(null);
 
   const onDelete = (todo) => {
     const newTodos = todos.filter((e) => e !== todo);
@@ -47,27 +51,23 @@ function App() {
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100 animated-bg" style={{ position: "relative" }}>
+        {/* Particles fixed in background, won't re-render */}
         <MemoizedParticles />
+
         <div className="flex-grow-1" style={{ position: "relative", zIndex: 1 }}>
           <Header title="My Todos List" searchBar={true} />
           <Switch>
             <Route exact path="/">
               <div className="container my-3">
 
-                {/* Add/Edit Todo card with motion animation */}
+                {/* AddTodo card with motion animation */}
                 <motion.div
                   className="glass-card p-4 shadow-lg mb-4"
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <Addtodo
-                    addTodo={addTodo}
-                    editTodo={editTodo}
-                    setEditTodo={setEditTodo}
-                    todos={todos}
-                    setTodos={setTodos}
-                  />
+                  <Addtodo addTodo={addTodo} />
                 </motion.div>
 
                 {/* Todos list card with motion animation */}
@@ -78,7 +78,7 @@ function App() {
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 >
                   <h4 className="text-center mb-3">My Todos</h4>
-                  <Todos todos={todos} onDelete={onDelete} onEdit={setEditTodo} />
+                  <Todos todos={todos} onDelete={onDelete} />
                 </motion.div>
               </div>
             </Route>
