@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => {
+    // Local state for form inputs
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
-    const [show, setShow] = useState(true);
-    const nodeRef = useRef(null);
+    const [show, setShow] = useState(true); // Controls CSSTransition visibility
+    const nodeRef = useRef(null); // Reference for animation
 
+    // Populate form fields if editing a todo
     useEffect(() => {
         if (editTodo) {
             setTitle(editTodo.title);
@@ -14,23 +16,29 @@ export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => 
         }
     }, [editTodo]);
 
+    // Handle form submission
     const submit = (e) => {
         e.preventDefault();
+
+        // Basic validation
         if (title.trim() === "" || desc.trim() === "") {
             alert("Please fill in both Title and Description before adding 🚨");
             return;
         }
 
         if (editTodo) {
+            // Update existing todo
             const updatedTodos = todos.map((t) =>
                 t.sno === editTodo.sno ? { ...t, title, desc } : t
             );
             setTodos(updatedTodos);
-            setEditTodo(null);
+            setEditTodo(null); // Reset edit mode
         } else {
+            // Add new todo
             addTodo(title.trim(), desc.trim());
         }
 
+        // Reset form fields
         setTitle("");
         setDesc("");
     };
@@ -43,14 +51,15 @@ export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => 
             unmountOnExit
             nodeRef={nodeRef}
         >
-            <div
-                ref={nodeRef}
-                className="glass-card p-4 shadow-sm mb-4 rounded-3"
-            >
-                <h5 className="text-center mb-3 fw-bold ">
+            <div ref={nodeRef} className="glass-card p-4 shadow-sm mb-4 rounded-3">
+                {/* Form Header */}
+                <h5 className="text-center mb-3 fw-bold">
                     {editTodo ? "Edit Todo" : "Add a New Todo"}
                 </h5>
+
+                {/* Todo Form */}
                 <form onSubmit={submit}>
+                    {/* Title Input */}
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label fw-semibold">
                             Todo Title
@@ -65,6 +74,7 @@ export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => 
                         />
                     </div>
 
+                    {/* Description Input */}
                     <div className="mb-3">
                         <label htmlFor="desc" className="form-label fw-semibold">
                             Description
@@ -79,6 +89,7 @@ export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => 
                         ></textarea>
                     </div>
 
+                    {/* Submit Button */}
                     <button
                         type="submit"
                         className="btn btn-success w-100 fw-bold shadow"
