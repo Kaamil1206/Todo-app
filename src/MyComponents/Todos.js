@@ -6,16 +6,6 @@ export const Todos = ({ todos, onDelete, onEdit }) => {
     const containerRef = useRef(null);
     const nodeRefs = useRef({});
 
-    const handleDelete = (todo) => {
-        const scrollTop = containerRef.current?.scrollTop;
-        onDelete(todo);
-        setTimeout(() => {
-            if (containerRef.current) {
-                containerRef.current.scrollTop = scrollTop;
-            }
-        }, 0);
-    };
-
     return (
         <div
             ref={containerRef}
@@ -29,9 +19,7 @@ export const Todos = ({ todos, onDelete, onEdit }) => {
             ) : (
                 <TransitionGroup component={null}>
                     {todos.map((todo) => {
-                        if (!nodeRefs.current[todo.sno]) {
-                            nodeRefs.current[todo.sno] = React.createRef();
-                        }
+                        if (!nodeRefs.current[todo.sno]) nodeRefs.current[todo.sno] = React.createRef();
                         return (
                             <CSSTransition
                                 key={todo.sno}
@@ -39,15 +27,11 @@ export const Todos = ({ todos, onDelete, onEdit }) => {
                                 classNames="todo"
                                 nodeRef={nodeRefs.current[todo.sno]}
                             >
-                                <div
-                                    ref={nodeRefs.current[todo.sno]}
-                                    className="todo-item glass-card p-3 mb-3 shadow-sm rounded-3"
-                                >
+                                <div ref={nodeRefs.current[todo.sno]} className="todo-item glass-card p-3 mb-3 shadow-sm rounded-3">
                                     <Todoitem
                                         todo={todo}
-                                        onDelete={() => handleDelete(todo)}
-                                        onEdit={onEdit}
-                                        theme="light"
+                                        onDelete={() => onDelete(todo)}
+                                        onEdit={() => onEdit(todo)}
                                     />
                                 </div>
                             </CSSTransition>
