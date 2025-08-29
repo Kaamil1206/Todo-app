@@ -126,3 +126,18 @@
   transform: translateY(20px) scale(0.9) rotate(1deg);
   transition: opacity 350ms ease-in-out, transform 350ms ease-in-out;
 }
+/* Add appear animation */
+.todo-appear {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95) rotate(-1deg);
+}
+.todo-appear-active {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+/* Smooth transitions for all todo actions */
+.todo-item {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
