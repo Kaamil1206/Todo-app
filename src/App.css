@@ -148,8 +148,8 @@ body {
 .app-title {
   font-family: 'Great Vibes', cursive;
   font-size: 3rem;
-  color: #ffffff;
-  text-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+  color: #000000;
+  text-shadow: 0px 4px 10px rgb(255, 255, 255);
 }
 
 .todos-title {
