@@ -61,7 +61,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <h1 className="app-title">My Todos List</h1>
+                  
                   <Addtodo
                     addTodo={addTodo}
                     editTodo={editTodo}
@@ -78,7 +78,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 >
-                  <h4 className="todos-title mb-3">My Todos</h4>
+                  <h4 className="app-title text-center" >My Todos</h4>
                   <Todos todos={todos} onDelete={onDelete} onEdit={onEdit} />
                 </motion.div>
               </div>
