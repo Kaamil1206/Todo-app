@@ -12,7 +12,7 @@ export default function Header({ title, searchBar }) {
             <div className="container-fluid">
 
                 {/* Brand / App Title */}
-                <Link className="navbar-brand" to="/">
+                <Link className="navbar-brand app-title" to="/">
                     {title}
                 </Link>
 
@@ -33,10 +33,10 @@ export default function Header({ title, searchBar }) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link app-title" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/about">About</Link>
+                            <Link className="nav-link app-title" to="/about">About</Link>
                         </li>
                     </ul>
 
