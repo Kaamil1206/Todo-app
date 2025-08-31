@@ -53,7 +53,7 @@ export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => 
         >
             <div ref={nodeRef} className="glass-card p-4 shadow-sm mb-4 rounded-3">
                 {/* Form Header */}
-                <h5 className="text-center mb-3 fw-bold">
+                <h5 className="text-center mb-3 app-title">
                     {editTodo ? "Edit Todo" : "Add a New Todo"}
                 </h5>
 
