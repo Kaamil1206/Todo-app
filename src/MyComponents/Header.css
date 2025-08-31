@@ -13,7 +13,7 @@
 }
 
 .glass-navbar .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #1a1a1a;
     transition: color 0.3s ease;
@@ -25,7 +25,9 @@
 
 .glass-navbar .nav-link {
     color: #333;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .glass-navbar .nav-link:hover {
@@ -60,4 +62,17 @@
     background-color: rgba(0, 123, 255, 1);
     color: #fff;
     transform: scale(1.05);
+}
+.app-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: #000000;
+    text-shadow: 0px 4px 10px rgb(255, 255, 255);
+}
+
+.todos-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 2rem;
+    color: #000000;
+    text-shadow: 0px 2px 6px rgb(255, 255, 255);
 }
