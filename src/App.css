@@ -142,8 +142,11 @@
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 body {
-  font-family: 'Poppins', sans-serif; /* keep normal body */
+  font-family: 'consolas', serif;
 }
+
+
+
 
 .app-title {
   font-family: 'Great Vibes', cursive;
