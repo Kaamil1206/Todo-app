@@ -94,7 +94,7 @@ export const Addtodo = ({ addTodo, editTodo, setEditTodo, todos, setTodos }) => 
                         type="submit"
                         className="btn btn-success w-100 fw-bold shadow"
                     >
-                        {editTodo ? "Save Changes" : "Add Todo"} 🚀
+                        {editTodo ? "Save Changes" : "Add Todo"}
                     </button>
                 </form>
             </div>
